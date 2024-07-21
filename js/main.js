@@ -83,7 +83,11 @@ function initialize() {
     if (loadUrlDB != null) {
         setIsLoading(true);
         const xhr = new XMLHttpRequest();
-        xhr.open("GET", decodeURIComponent(loadUrlDB), true);
+        xhr.open(
+            "GET",
+            `https://corsproxy.io/?url=${decodeURIComponent(loadUrlDB)}`,
+            true
+        );
         xhr.responseType = "arraybuffer";
         xhr.onload = function (e) {
             loadDB(this.response);
